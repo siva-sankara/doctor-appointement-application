@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
         <div className="layout">
           <div className="sidebar">
             <div className="logo">
-              <h6 className="text-light">DOC APP</h6>
+              <h6 className="text-light"><i className="fa-solid fa-user-doctor"></i>DOC APP</h6>
               <hr />
             </div>
             <div className="menu">
@@ -120,7 +120,7 @@ const Layout = ({ children }) => {
           </div>
           <div className="content">
             <div className="header">
-              <div className="header-heading"><h4>DOC_APP</h4></div>
+              <div className="header-heading"><Link to='/'><h4><i className="fa-solid fa-user-doctor"></i>DOC_APP</h4></Link></div>
               <div className="header-content" style={{ cursor: "pointer" }}>
                 <Badge
                   count={user && user.notifcation.length}
@@ -131,7 +131,10 @@ const Layout = ({ children }) => {
                 >
                   <i class="fa-solid fa-bell"></i>
                 </Badge>
-                <h3 className="name"><i className="fa-solid fa-user "></i>{user?.name}</h3>
+                <i className="fa-solid fa-user us " onClick={() => {
+                    navigate("/notification");
+                  }}></i>
+                <p className="name">{user?.name}</p>
               </div>
             </div>
             <div className="body">{children}</div>
