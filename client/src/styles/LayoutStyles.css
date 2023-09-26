@@ -170,8 +170,8 @@
     display: none;
   }
   .name{
-    width: 100px;
-    padding-top:5px;
+    width: 150px;
+    font-size:16px;
     height: 8vh;
     overflow: hidden;
   }
