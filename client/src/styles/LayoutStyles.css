@@ -171,6 +171,7 @@
   }
   .name{
     width: 100px;
+    padding-top:5px;
     height: 8vh;
     overflow: hidden;
   }
