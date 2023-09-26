@@ -1,7 +1,5 @@
 import React from "react";
 import "../styles/LayoutStyles.css";
-import { adminMenu, userMenu } from "./../Data/data";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Badge, message } from "antd";
@@ -35,7 +33,57 @@ const Layout = ({ children }) => {
       icon: "fa-solid fa-user",
     },
   ];
-  // =========== doctor menu ===============
+
+  //user menu
+  const userMenu = [
+    {
+      name: "Home",
+      path: "/",
+      icon: "fa-solid fa-house",
+    },
+    {
+      name: "Appointments",
+      path: "/appointments",
+      icon: "fa-solid fa-list",
+    },
+    {
+      name: "Apply Doctor",
+      path: "/apply-doctor",
+      icon: "fa-solid fa-user-doctor",
+    },
+    {
+      name: "Profile",
+      path: `/user/profile/${user?._id}`,
+      icon: "fa-solid fa-user",
+    },
+  ];
+
+  
+// admin menu
+ const adminMenu = [
+  {
+    name: "Home",
+    path: "/",
+    icon: "fa-solid fa-house",
+  },
+
+  {
+    name: "Doctors",
+    path: "/admin/doctors",
+    icon: "fa-solid fa-user-doctor",
+  },
+  {
+    name: "Users",
+    path: "/admin/users",
+    icon: "fa-solid fa-users",
+  },
+  {
+    name: "Profile",
+    path: `/doctor/profile/${user?._id}`,
+    icon: "fa-solid fa-user",
+  },
+];
+
 
   // redering menu list
   const SidebarMenu = user?.isAdmin
@@ -58,20 +106,21 @@ const Layout = ({ children }) => {
                 return (
                   <>
                     <div className={`menu-item ${isActive && "active"}`}>
-                      <i className={menu.icon}></i>
-                      <Link to={menu.path}>{menu.name}</Link>
+                     <Link to={menu.path}> <i className={menu.icon}></i></Link>
+                      <Link  className="menu-item-name"to={menu.path}>{menu.name}</Link>
                     </div>
                   </>
                 );
               })}
               <div className={`menu-item `} onClick={handleLogout}>
                 <i className="fa-solid fa-right-from-bracket"></i>
-                <Link to="/login">Logout</Link>
+                <Link className="menu-item-name" to="/login">Logout</Link>
               </div>
             </div>
           </div>
           <div className="content">
             <div className="header">
+              <div className="header-heading"><h6>DOC_APP</h6></div>
               <div className="header-content" style={{ cursor: "pointer" }}>
                 <Badge
                   count={user && user.notifcation.length}
@@ -82,7 +131,7 @@ const Layout = ({ children }) => {
                   <i class="fa-solid fa-bell"></i>
                 </Badge>
 
-                <Link to="/profile">{user?.name}</Link>
+                <Link to={`/profile/${user?._id}`}>{user?.name}</Link>
               </div>
             </div>
             <div className="body">{children}</div>
