@@ -16,7 +16,7 @@ const ApplyDoctor = () => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/apply-doctor",
+        "https://doctor-app-backend-i2jp.onrender.com/api/v1/user/apply-doctor",
         {
           ...values,
           userId: user._id,
