@@ -136,8 +136,6 @@
 }
 @media screen and (max-width: 600px) {
   .header {
-    padding: 0 10px;
-    margin: 0;
     height: 8vh;
     border-radius: 0;
     display: flex;
@@ -170,10 +168,13 @@
     display: none;
   }
   .name{
-    width: 150px;
-    font-size:16px;
-    height: 8vh;
+    margin-top:10px;
+    max-width: 150px;
+    font-size:medium;
+    height: 5vh;
     overflow: hidden;
+    display:felx;
+    justify-content:center;
   }
   .menu-item {
     margin-top: 5px;
