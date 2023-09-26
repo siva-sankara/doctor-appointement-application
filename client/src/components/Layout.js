@@ -120,18 +120,18 @@ const Layout = ({ children }) => {
           </div>
           <div className="content">
             <div className="header">
-              <div className="header-heading"><h6>DOC_APP</h6></div>
+              <div className="header-heading"><h4>DOC_APP</h4></div>
               <div className="header-content" style={{ cursor: "pointer" }}>
                 <Badge
                   count={user && user.notifcation.length}
+                  className="gold"
                   onClick={() => {
                     navigate("/notification");
                   }}
                 >
                   <i class="fa-solid fa-bell"></i>
                 </Badge>
-
-                <Link to={`/profile/${user?._id}`}>{user?.name}</Link>
+                <h3 className="name"><i className="fa-solid fa-user "></i>{user?.name}</h3>
               </div>
             </div>
             <div className="body">{children}</div>
